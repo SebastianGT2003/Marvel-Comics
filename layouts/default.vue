@@ -1,13 +1,30 @@
 <template>
-  <div class="layout">
-    <v-img
-      max-height="150"
-      max-width="250"
-      padding="10%"
-      src="https://upload.wikimedia.org/wikipedia/commons/7/71/Marvel-Comics-Logo.svg"
-    ></v-img>
+  <div>
+    <v-toolbar
+      dark
+      prominent
+      image="https://www.cinemascomics.com/wp-content/uploads/2020/09/villanos-de-marvel.jpg"
+      height="50%"
+    >
+      <v-app-bar-nav-icon>
+        
+      </v-app-bar-nav-icon>
+
+      <v-toolbar-title>
+        <v-img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Marvel-Comics-Logo.svg/1200px-Marvel-Comics-Logo.svg.png">
+        </v-img>
+      </v-toolbar-title>
+
+      <v-spacer>
+      </v-spacer>
+
+      <v-btn icon>
+        <v-icon>mdi-export</v-icon>
+      </v-btn>
+    </v-toolbar>
+    <slot/>
   </div>
-  <slot />
 </template>
 <script setup>
 
