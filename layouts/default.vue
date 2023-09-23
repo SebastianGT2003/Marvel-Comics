@@ -3,7 +3,6 @@
     <v-toolbar
       dark
       prominent
-      image="https://www.cinemascomics.com/wp-content/uploads/2020/09/villanos-de-marvel.jpg"
       height="50%"
     >
       <v-app-bar-nav-icon>
@@ -12,6 +11,7 @@
 
       <v-toolbar-title>
         <v-img
+        width="150px"
         src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Marvel-Comics-Logo.svg/1200px-Marvel-Comics-Logo.svg.png">
         </v-img>
       </v-toolbar-title>
