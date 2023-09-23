@@ -3,7 +3,7 @@
   <div class="container">
     <div class="card-container" v-for="item in characters" :key="item.id">
       <v-card class="card-image mx:10">
-        <v-img :src="item.thumbnail.path + '.' + item.thumbnail.extension" height="200px" cover></v-img>
+        <v-img :src="item.thumbnail.path + '.' + item.thumbnail.extension" height="400px" cover></v-img>
         <v-card-title> {{ item.name }} </v-card-title>
         <v-card-actions>
           <v-btn color="orange-lighten-2" variant="text">
@@ -12,7 +12,6 @@
 
           <v-spacer></v-spacer>
 
-          <v-btn :icon="show ? 'mdi-chevron-up' : 'mdi-chevron-down'" @click="show = !show"></v-btn>
         </v-card-actions>
 
         <v-expand-transition>
@@ -41,34 +40,34 @@ onBeforeMount(() => {
 
 const datos = async () => {
   const { data } = await axios.get(
-    "https://gateway.marvel.com:443/v1/public/characters?ts=10&apikey=c920b676d987c6ae7beaa27cc956a376&hash=7b625305993dfaf0623804a3a799e432"
+    "https://gateway.marvel.com:443/v1/public/characters?ts=10&apikey=c920b676d987c6ae7beaa27cc956a376&hash=7b625305993dfaf0623804a3a799e432&limit=100"
   );
 
-  characters.value = data.data.results
+  characters.value = data.data.results.filter(characters=>{
+    return characters.thumbnail.path !== "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available";
+
+  })
+
   console.log(data);
   console.log(characters);
 };
 </script>
-<script>
-export default {
-  data: () => ({
-    show: false,
-  }),
-}
-</script>
+
 <style>
 .container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
   flex-wrap: wrap;
   justify-content: space-around;
   align-content: space-between;
-  height: 100vh;
   padding: 20px;
   box-sizing: border-box;
+  
+  
 }
 
 .card-container {
-  flex-basis: calc(25% - 20px); /* Ajusta el tamaño base para mostrar 4 tarjetas por fila */
+  flex-basis: calc(25% - 30px); /* Ajusta el tamaño base para mostrar 4 tarjetas por fila */
   margin: 10px;
   display: flex;
   justify-content: center;
@@ -76,9 +75,50 @@ export default {
   box-sizing: border-box; /* Incluye el espacio del margen en el tamaño total */
 }
 
-.card-image {
+.card-image  {
   width: 100%;
+  /* max-width: 200px; */
+  height: 100%;
+}
+
+@media (max-width: 767px) {
+  .card-image {
+  width: 100%;
+  max-width: 150px;
   max-height: 800px;
   object-fit: cover;
 }
+.card-container {
+  flex-basis: calc(25% - 30px); /* Ajusta el tamaño base para mostrar 4 tarjetas por fila */
+  margin: 10px;
+  display: flex;
+
+}
+.container {
+  display:grid;
+  grid-template-columns: 50% 50%;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-between;
+  padding: 20px;
+  box-sizing: border-box;
+  
+  
+}
+
+
+}
+@media (min-width: 767px) and (max-width: 900px) {
+  .container {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-between;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+}
+
+
 </style>
