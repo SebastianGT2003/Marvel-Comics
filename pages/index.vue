@@ -6,7 +6,7 @@
         <v-img :src="item.thumbnail.path + '.' + item.thumbnail.extension" height="400px" cover></v-img>
         <v-card-title> {{ item.name }} </v-card-title>
         <v-card-actions>
-          <v-btn color="orange-lighten-2" variant="text">
+          <v-btn color="orange-lighten-2" variant="text" @click="show_dialog(item.id)">
             Explore
           </v-btn>
 
@@ -14,29 +14,33 @@
 
         </v-card-actions>
 
-        <v-expand-transition>
-          <div v-show="show">
-            <v-divider></v-divider>
-
-            <v-card-text>
-              I'm a thing. But, like most politicians, he promised more than he could deliver. You won't have time for
-              sleeping, soldier, not with all the bed making you'll be doing. Then we'll go with that data file! Hey, you
-              add a one and two zeros to that or we walk! You're going to do his laundry? I've got to find a way to
-              escape.
-            </v-card-text>
-          </div>
-        </v-expand-transition>
       </v-card>
     </div>
 
   </div>
+  <heroes-dialog v-if="open_dialog" :character="character_dialog" :dialog="open_dialog" @close="close_dialog" />
+
+
 </template>
 <script setup>
 import axios from "axios";
+
+
+const router = useRouter()
+
 const characters = ref({});
+
+const open_dialog= ref(false)
+
+const character_dialog=ref({})
+
+
+
 onBeforeMount(() => {
   datos();
 });
+
+
 
 const datos = async () => {
   const { data } = await axios.get(
@@ -50,6 +54,16 @@ const datos = async () => {
 
   console.log(data);
   console.log(characters);
+};
+
+const show_dialog = (id_character) => {
+  character_dialog.value = characters.value.find(character => character.id === id_character);
+  open_dialog.value = true;
+};
+
+const close_dialog = () => {
+  // Cerramos el diálogo
+  open_dialog.value = false;
 };
 </script>
 
