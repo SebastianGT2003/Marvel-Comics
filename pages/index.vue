@@ -62,7 +62,6 @@ const show_dialog = (id_character) => {
 };
 
 const close_dialog = () => {
-  // Cerramos el diálogo
   open_dialog.value = false;
 };
 </script>
