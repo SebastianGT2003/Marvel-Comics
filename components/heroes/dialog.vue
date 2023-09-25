@@ -2,7 +2,7 @@
   <v-dialog v-model="open_dialog" max-width="500px" persistent>
     <v-card>
       <v-card-title></v-card-title>
-      <v-toolbar color="primary" text-align="center"><v-toolbar-title class="text-center">{{ character.name
+      <v-toolbar style="background-color: blueviolet;"> <v-toolbar-title class="text-center" style="color:white">{{ character.name
       }}</v-toolbar-title>
       </v-toolbar>
       <v-card-text>

@@ -1,6 +1,6 @@
 <template>
   <div class="inicio">
-    <h1 class="title">Superheros</h1>
+    <h1 class="title">SUPERHEROS</h1>
   <div class="container">
     <div class="card-container" v-for="item in characters" :key="item.id">
       <v-card class="card-image mx:10">
