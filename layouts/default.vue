@@ -1,9 +1,10 @@
 <template>
   <div>
-    <v-toolbar
+    <v-toolbar class="toolbar"
       dark
       prominent
       height="50%"
+    
     >
       <v-app-bar-nav-icon>
         
@@ -37,5 +38,8 @@
 /*   display: block; */
   height: 10%;
   width: auto;
+}
+.toolbar{
+  /* background-color: blueviolet; */
 }
 </style>

@@ -1,0 +1,84 @@
+.container {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-between;
+    padding: 20px;
+    box-sizing: border-box;
+    
+    
+  }
+  
+  .card-container {
+    flex-basis: calc(25% - 30px); /* Ajusta el tamaño base para mostrar 4 tarjetas por fila */
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    box-sizing: border-box; /* Incluye el espacio del margen en el tamaño total */
+  }
+  
+  .card-image  {
+    width: 100%;
+    /* max-width: 200px; */
+    height: 100%;
+  }
+  
+  @media (max-width: 767px) {
+    .card-image {
+    width: 100%;
+    max-width: 150px;
+    max-height: 800px;
+    object-fit: cover;
+  }
+  .card-container {
+    flex-basis: calc(25% - 30px); /* Ajusta el tamaño base para mostrar 4 tarjetas por fila */
+    margin: 10px;
+    display: flex;
+  
+  }
+  .container {
+    display:grid;
+    grid-template-columns: 50% 50%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-between;
+    padding: 20px;
+    box-sizing: border-box;
+    
+    
+  }
+  
+  
+  }
+  @media (min-width: 767px) and (max-width: 900px) {
+    .container {
+      display: grid;
+      grid-template-columns: 33% 33% 33%;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-content: space-between;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+  }
+.inicio{
+    background-image: url("https://w0.peakpx.com/wallpaper/351/1013/HD-wallpaper-marvel-comics.jpg");
+    background-repeat: no-repeat;
+    background-size: cover; /* Cubre todo el elemento, manteniendo la relación de aspecto */
+    background-attachment: fixed;
+    
+    
+}
+.v-card-title{
+    color: rgb(162, 10, 233)
+}
+.title{
+    text-align: center; /* Centra horizontalmente el texto */
+    color: white; /* Cambia el color del texto a blanco */
+    font-weight: bold;
+    font-size: 100px;
+}
+  
+  

@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="open_dialog" max-width="500px">
+  <v-dialog v-model="open_dialog" max-width="500px" persistent>
     <v-card>
       <v-card-title></v-card-title>
       <v-toolbar color="primary" text-align="center"><v-toolbar-title class="text-center">{{ character.name
@@ -63,13 +63,8 @@ const closeDialog = () => {
 
 </script>
 
-<style>
-h2 {
-  color: rgb(162, 10, 233)
-}
-v-list-item-title{
-  font-family: Arial, sans-serif;
-}
+<style module>
+@import "../../styles/dialog.module.css";
 </style>
 
 
