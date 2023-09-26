@@ -39,7 +39,4 @@
   height: 10%;
   width: auto;
 }
-.toolbar{
-  /* background-color: blueviolet; */
-}
 </style>
